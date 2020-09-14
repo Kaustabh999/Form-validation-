@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container"><br>
+        <h1 class="text-success text-center">Validation Form</h1><br>
+        <div class="col-lg-8 m-auto d-block">
+            <form onsubmit="validation(event)" class="bg-light px-5 py-5">
+                <div class="form-group">
+                    <label for="">Username:</label>
+                    <input type="text" name="user" class="form-control" id="user">
+                    <span class="text-danger" id="username"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">Password:</label>
+                    <input type="text" name="pass" class="form-control" id="pass">
+                    <span class="text-danger" id="passwords"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">Confirm Password:</label>
+                    <input type="text" name="conpass" class="form-control" id="conpass">
+                    <span class="text-danger" id="confirmpass"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">Mobile Number:</label>
+                    <input type="text" name="Mobile" class="form-control" id="mobileNumber">
+                    <span class="text-danger" id="mobileno"></span>
+                </div>
+                <div class="form-group">
+                    <label for="">Email:</label>
+                    <input type="text" name="email" class="form-control" id="emails">
+                    <span class="text-danger" id="emailids"></span>
+                </div>
+                <input type="submit" name="submit" class="form-control my-2 btn btn-success" value="Submit">
+            </form>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+
+         function validation(e){
+             e.preventDefault(); //The Event interface's preventDefault() method tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
+             //console.log(e);
+            let user = document.getElementById("user").value;
+            let pass = document.getElementById("pass").value;
+            let conpass = document.getElementById("conpass").value;
+            //let mobileNumber = document.getElementById("mobileNumber").value;
+            let emails = document.getElementById("emails").value;
+            let mobileNumber = 1234;
+
+            if(user == ""){
+                console.log(mobileNumber);
+                document.getElementById("username").innerHTML ="** Please fill the username field";
+                return false;
+            }
+
+            if(pass == ""){
+                console.log(123);
+                document.getElementById("passwords").innerHTML ="** Please fill the password field";
+                return false;
+            }
+
+            if(conpass == ""){
+                document.getElementById("confirmpass").innerHTML ="** Please fill the confirm password field";
+                return false;
+            }
+
+            if(conpass != pass){
+                document.getElementById("confirmpass").innerHTML ="** Write the correct password";
+                return false;
+            }/*else{
+                document.getElementById("confirmpass").innerHTML ="";
+                return false;
+            }*/
+
+            if(mobileNumber == ""){
+                //console.log(123);
+                document.getElementById("mobileno").innerHTML ="** Please fill the mobile number field";
+                return false;
+            }
+
+            if(isNaN(mobileNumber)== true){
+                document.getElementById("mobileno").innerHTML ="** Enter digits only";
+                return false;
+            }
+
+            if(mobileNumber.length != 10){
+                document.getElementById("mobileno").innerHTML ="** Incorrect phone number";
+                return false;
+            }
+
+            if(emails == ""){
+                document.getElementById("emailids").innerHTML ="** Please fill the email field";
+                return false;
+            }
+         }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
